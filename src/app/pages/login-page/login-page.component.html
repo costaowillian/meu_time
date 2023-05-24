@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="logo">
+    <span class="material-symbols-outlined">
+      sports_soccer
+    </span>
+    <h2>Meu Time</h2>
+  </div>
+
+  <div class="formGroup">
+    <h1>Faça seu login</h1>
+    <form #f="ngForm" [formGroup]="formLogin" (ngSubmit)="onSubmit()" method="post">
+      <span>Insira sua Key de acesso ao Api football:</span>
+      <input type="text" name="acessKey" id="acessKey" formControlName="acessKey"
+      placeholder="Insira sua Key"
+      [class.valid]="formLogin.controls['acessKey'].valid"
+      [class.invalid]="formLogin.controls['acessKey'].invalid && formLogin.controls['acessKey'].touched || formLogin.controls['acessKey'].dirty"
+    >
+    <div *ngIf="formLogin.controls['acessKey'].invalid && formLogin.controls['acessKey'].touched || formLogin.controls['acessKey'].dirty">
+      <label class="error-message" *ngIf="formLogin.controls['acessKey'].hasError('acessKey')">
+        Esse campo precisa ter 11 digitos.
+      </label>
+      <label class="error-message" *ngIf="formLogin.controls['acessKey'].hasError('required')">
+        Esse campo precisa ser preenchido.
+      </label>
+    </div>
+    <button type="submit" [disabled]="formLogin.invalid">Fazer login</button>
+    </form>
+    <div>
+      <p class="error-message" hidden> {{ hasError }}</p>
+    </div>
+  </div>
+
+<div class="texts">
+  <p>Para gerar a sua chave de autenticação basta acessar <a href="https://rapidapi.com/auth/sign-up">rapidapi.com</a> e criar sua conta!</p>
+  <p><strong>Atenção</strong> contas criadas com a v3.football.api-sports.io não serão válidas</p>
+</div>
+
+
+</div>

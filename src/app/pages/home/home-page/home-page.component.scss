@@ -1,0 +1,91 @@
+$colorWhite: #ffffff;
+$colorGrey: #6d6d6d;
+$coplorBlue: #005D9B;
+
+@mixin display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  span {
+    color: $colorWhite;
+    font-size: 36px;
+  }
+
+  h2 {
+    color: $colorWhite;
+    font-size: 36px;
+  }
+
+}
+
+.container {
+  @include display();
+  background: $coplorBlue;
+  background-size: cover;
+  height: 896px;
+}
+
+.form {
+  @include display();
+  background: $colorWhite;
+  width: 80%;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 40px auto;
+
+  h1 {
+    color: $coplorBlue;
+    margin-bottom: 16px;
+  }
+
+  form {
+    @include display();
+    width: 70%;
+    gap: 16px;
+    select {
+      width: 250px;
+      padding: 8px;
+      border-radius: 8px;
+      background: $colorWhite;
+      border: solid 1px $coplorBlue;
+      select:invalid {
+        color: $colorGrey;
+      }
+    }
+
+    span {
+      color: $colorGrey;
+      margin-bottom: 4px;
+    }
+
+    option {
+      width: 200px;
+      padding: 8px;
+      border-radius: 8px;
+      background: $colorWhite;
+    }
+
+    button {
+      width: auto;
+    }
+
+  }
+}
+
+@media screen and (min-width: 991.98px) {
+  .form {
+    @include display();
+    background: $colorWhite;
+    width: 450px;
+  }
+}
+
+

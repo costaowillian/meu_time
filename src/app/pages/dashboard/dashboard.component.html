@@ -1,0 +1,64 @@
+<div>
+  <nav class="header">
+    <div class="logo">
+      <span class="material-symbols-outlined">
+        sports_soccer
+      </span>
+      <h2>Meu Time</h2>
+    </div>
+  </nav>
+</div>
+
+<section class="container">
+  <div class="card_time">
+    <h2>Jogadores</h2>
+    <div class="scroll">
+      <div class="player_info" *ngFor="let player of players">
+        <img src="{{ player.photo }}" alt="{{ player.name }}">
+        <div>
+          <h2>{{ player.name }}</h2>
+          <p>Idade: {{ player.age }}</p>
+          <p>Nacionalidade: {{ player.nationality }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="web">
+  <div class="card_jogos">
+    <h2>Tabela de resultados:</h2>
+    <table>
+      <tr>
+        <th>Total de jogos</th>
+        <th>Total de vitórias</th>
+        <th>Total de derrotas</th>
+        <th>Total de empates</th>
+      </tr>
+      <tr *ngIf="(dataTable | json) != '{}'">
+        <td>{{ dataTable.played.total}}</td>
+        <td>{{ dataTable.wins.total }}</td>
+        <td>{{ dataTable.loses.total }}</td>
+        <td>{{ dataTable.draws.total }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card_formation">
+    <h2>Formação mais utilizada:</h2>
+    <div>
+      <p>{{ formations[1] || "Nenhuma formação"}}</p>
+      <p>Essa formação fou utilizada {{ formations[0] || 0 }} vezes</p>
+    </div>
+
+  </div>
+
+  <div class="card_goals">
+    <h2>Gols marcados:</h2>
+    <div class="chart-container" style="position: relative; height:40vh; width:60vw">
+      <canvas id="MyChart">{{ chart }}</canvas>
+    </div>
+  </div>
+
+</div>
+
+</section>

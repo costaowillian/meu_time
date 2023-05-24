@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="logo">
+    <span class="material-symbols-outlined">
+      sports_soccer
+    </span>
+    <h2>Meu Time</h2>
+  </div>
+  <div class="form">
+    <h1>Vamos Começar!</h1>
+    <form #f="ngForm" [formGroup]="formSelect" (ngSubmit)="onSubmitData()" method="post">
+      <label for="pais">Selecione o país</label>
+      <select name="pais" id="country" class="form:{{formSelect.controls.country.toString() }}"formControlName="country" (change)="getSeason()"
+      [class.valid]="formSelect.controls['country'].valid"
+      [class.invalid]="formSelect.controls['country'].invalid || formSelect.controls['country'].dirty">
+        <option value="" disabled selected>Selecionar...</option>
+        <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+      </select>
+
+      <div *ngIf="formSelect.controls['country'].invalid && formSelect.controls['country'].touched || formSelect.controls['country'].dirty">
+        <label class="error-message" *ngIf="formSelect.controls['country'].hasError('required')">
+          Selecione um país!
+        </label>
+      </div>
+
+      <label for="temporada">Selecione a temporada</label>
+      <select name="temporada" id="season" formControlName="season" [disabled]="formSelect.controls.league.invalid" (change)="getLeague()"
+      [class.valid]="formSelect.controls['season'].valid"
+      [class.invalid]="formSelect.controls['season'].invalid || formSelect.controls['season'].dirty">
+        <option value="" disabled selected>Selecionar...</option>
+        <option *ngFor="let season of seasons" [value]="season">{{ season }}</option>
+      </select>
+
+      <div *ngIf="formSelect.controls['season'].invalid && formSelect.controls['season'].touched || formSelect.controls['season'].dirty">
+        <label class="error-message" *ngIf="formSelect.controls['season'].hasError('required')">
+          Selecione uma temporada!
+        </label>
+      </div>
+
+      <label for="liga">Selecione a liga</label>
+      <select name="liga" id="league" formControlName="league" [disabled]="formSelect.controls.country.invalid" (change)="getTime()"
+      [class.valid]="formSelect.controls['country'].valid && formSelect.controls['league'].valid"
+      [class.invalid]="formSelect.controls['league'].invalid || formSelect.controls['league'].dirty">
+        <option value="" disabled selected>Selecionar...</option>
+        <option *ngFor="let league of leagues" [value]="league.league_id">{{ league.name }}</option>
+      </select>
+
+      <div *ngIf="formSelect.controls['league'].invalid && formSelect.controls['league'].touched || formSelect.controls['league'].dirty">
+        <label class="error-message" *ngIf="formSelect.controls['league'].hasError('required')">
+          Selecione uma liga!
+        </label>
+      </div>
+
+
+
+      <label for="time">Selecione o time</label>
+      <select name="time" id="time" formControlName="time" [disabled]="!formSelect.controls.league.valid"
+      [class.valid]="formSelect.controls['time'].valid"
+      [class.invalid]="formSelect.controls['time'].invalid || formSelect.controls['time'].dirty">
+        <option value="" disabled selected>Selecionar...</option>
+        <option *ngFor="let time of times" [value]="time.team_id">{{ time.name }}</option>
+      </select>
+      <div *ngIf="formSelect.controls['time'].invalid && formSelect.controls['time'].touched || formSelect.controls['time'].dirty">
+        <label class="error-message" *ngIf="formSelect.controls['time'].hasError('required')">
+          Selecione um time!
+        </label>
+      </div>
+
+      <button type="submit" [disabled]="!formSelect.controls.time.valid">Ver estatísticas</button>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,99 @@
+$colorWhite: #ffffff;
+$coplorBlue: #005D9B;
+$colorBlack: #242526;
+
+@mixin display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  @include display();
+  background-image: url(https://images.pexels.com/photos/1657328/pexels-photo-1657328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-size: cover;
+  padding: 8px;
+  height: 896px;
+
+  h2 {
+    color: $colorWhite;
+    font-weight: 600;
+    margin-top: auto;
+    margin-bottom: 12px;
+    font-size: 56px;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+
+  span {
+    color: $colorWhite;
+    font-size: 56px;
+  }
+
+}
+
+.texts {
+  display: flex;
+  margin-top: auto;
+  flex-direction: column;
+  align-items: last baseline;
+  justify-content: last baseline;
+  p {
+    text-align: center;
+    margin: 12px;
+    color: $colorWhite;
+  }
+}
+
+.formGroup {
+  @include display();
+  gap:24px;
+  box-sizing: border-box;
+
+  margin-top: auto;
+  padding: 16px  8px 8px 8px;
+  width: 346px;
+
+  background: $coplorBlue;
+  box-shadow: 0px 16px 32px $colorBlack;
+  border-radius: 16px;
+
+  h1 {
+    color: $colorWhite;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  form {
+    @include display();
+    gap: 8px;
+  }
+
+  span {
+    color: $colorWhite;
+  }
+  input {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-width: calc(var(--border-width) * 1px);
+    border-style: solid;
+    border-color: $colorWhite;
+    border-radius: 8px;
+    text-align: center;
+    outline: transparent;
+  }
+}
+
+
+
+
+

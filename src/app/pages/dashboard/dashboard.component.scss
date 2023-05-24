@@ -1,0 +1,212 @@
+$colorBlue: #005D9B;
+$colorWhite: #ffffff;
+
+@mixin borderRaidus($px){
+  border-radius: 8px;
+  padding: $px;
+}
+
+@mixin displayColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+$borderRadios8: 8px;
+
+@mixin displayRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  @include displayRow;
+
+  width: 100%;
+  height: 80px;
+  background: $colorBlue;
+  padding: 8px;
+}
+
+.container {
+  @include displayColumn;
+  padding: 8px;
+}
+
+@media screen and (min-width: 991.98px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: first baseline;
+    justify-content: flex-start;
+
+  }
+
+  .web {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+}
+
+.card_time {
+  @include displayColumn();
+  @include borderRaidus(8px);
+
+  background: $colorBlue;
+  height: 400px;
+  width: 372px;
+
+  h2{
+    color: $colorWhite;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 991.98px) {
+
+  .card_time {
+    height: 750px;
+    width: 400px;
+  }
+}
+
+.scroll {
+   @include displayColumn();
+   overflow:auto;
+   padding-top: 300px;
+}
+
+.player_info {
+  @include displayRow();
+  gap: 4px;
+  @include borderRaidus(4px);
+  background-color: #ffffff;
+  margin: 6px 0 6px 0;
+  width: 342px;
+
+  img {
+    background: #ffffff;
+    border-radius: 4px;
+  }
+
+  h2 {
+    color: $colorBlue;
+    font-size: 20px;
+  }
+
+  p {
+    color: $colorBlue;
+    font-size: 16px;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+
+  span {
+    color: $colorWhite;
+    font-size: 32px;
+  }
+  h2{
+    color: $colorWhite;
+    font-size: 32px;
+    margin-bottom: 8px
+
+  }
+}
+
+table {
+  th {
+    background-color: $colorWhite;
+    color: $colorBlue;
+  }
+
+  tr {
+    background-color: $colorWhite;
+    color:$colorBlue;
+    text-align: center;
+  }
+}
+
+.card_jogos {
+  @include displayColumn();
+  padding: 8px;
+  background: $colorBlue;
+  margin: 8px;
+  padding: 8px;
+  width: 372px;
+  border-radius: 8px;
+  h2 {
+    color: $colorWhite;
+    font-size: 26px;
+    margin-bottom: 4px
+
+  }
+}
+
+.card_formation {
+  @include borderRaidus(8px);
+  background: $colorBlue;
+  margin: 8px;
+  width: 372px;
+
+  h2 {
+    color: $colorWhite;
+    font-size: 26px;
+  }
+
+  p {
+    color: $colorWhite;
+    font-size: 16px;
+  }
+}
+
+.card_goals {
+  @include displayColumn();
+  padding: 8px;
+  background: $colorBlue;
+  margin: 8px;
+  padding: 8px;
+  width: 372px;
+  border-radius: 8px;
+  h2 {
+    color: $colorWhite;
+    font-size: 26px;
+    margin-bottom: 8px
+  }
+}
+
+@media screen and (min-width: 991.98px) {
+  .card_formation {
+    width: 45%;
+  }
+
+  .card_jogos{
+    width: 45%;
+  }
+
+  .card_goals {
+    width: 93%;
+  }
+
+  .chart-container {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.chart-container {
+  background: $colorWhite;
+  border-radius: 8px;
+}
+
+
