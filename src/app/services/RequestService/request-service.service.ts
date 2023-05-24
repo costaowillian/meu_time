@@ -24,7 +24,7 @@ export class RequestServiceService{
       method: 'GET',
       url: 'https://api-football-v1.p.rapidapi.com/v2/leagues/country/'+country+'/'+seasonId,
       headers: {
-        'X-RapidAPI-Key': 'c43289cb62msh41e8851589bc8efp1e5034jsn418b07991c67',
+        'X-RapidAPI-Key': apiKey,
         'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
     };
